@@ -1,0 +1,124 @@
+<div class="container mt-3">
+  <div>
+    <table class="table table-striped" id="employee-performance">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Employee full name</th>
+          <th>Employee email</th>
+          <th>Total payments (BAM)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">
+            <div class="btn-group" role="group">
+              <button
+                type="button"
+                class="btn btn-warning"
+                onclick="EmployeesService.edit_employee(1)"
+              >
+                Edit
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                onclick="EmployeesService.delete_employee(1)"
+              >
+                Delete
+              </button>
+            </div>
+          </td>
+          <td>John Doe</td>
+          <td>john.doe@gmail.com</td>
+          <td>100.000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="edit-employee-modal"
+  tabindex="-1"
+  aria-labelledby="edit-employee-label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="#">
+        <div class="modal-header">
+          <h5 class="modal-title" id="edit-employee-label">Edit employee</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="employeeNumber" name="employeeNumber" />
+          <div class="mb-3 mt-3">
+            <label for="firstName">First name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              placeholder="Enter first name"
+              name="firstName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="lastName">Last name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              placeholder="Enter last name"
+              name="lastName"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter email"
+              name="email"
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  /* 
+    1. Populate the table with id `employee-performance` with the data returned
+       from the database. It does not have to be paginated. (5 points)
+    2. Implement the delete logic in the predefined function. (10 points)
+    3. When Edit button is clicked
+      a. fetch the employee with clicked id from database (backend) (6 points)
+      b. populate the modal (id `edit-employee-modal`) form with data returned from the backend (6 points)
+      d. when user clicks "Save changes" button in the modal persist changes
+         for that employee in the database (6 points)
+   */
+   
+   // Initialize the employees service when page loads
+   $(document).ready(function() {
+       EmployeesService.init();
+   });
+</script>

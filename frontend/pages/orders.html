@@ -1,0 +1,141 @@
+<div class="container mt-3">
+  <br />
+  <hr />
+  <div>
+    <table class="table table-striped table-bordered" id="order-details">
+      <thead>
+        <tr>
+          <th>Details</th>
+          <th>Order number</th>
+          <th>Total amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#order-details-modal"
+              data-bs-id="@1223"
+            >
+              Details
+            </button>
+          </td>
+          <td>1223</td>
+          <td>120.00</td>
+        </tr>
+        <tr>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#order-details-modal"
+              data-bs-id="@312"
+            >
+              Details
+            </button>
+          </td>
+          <td>312</td>
+          <td>18.00</td>
+        </tr>
+        <tr>
+          <td class="text-center">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#order-details-modal"
+              data-bs-id="@322"
+            >
+              Details
+            </button>
+          </td>
+          <td>322</td>
+          <td>14.25</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="order-details-modal"
+  tabindex="-1"
+  aria-labelledby="order-details-label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="order-details-label">Order Details</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Single unit cost (BAM)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Bread</td>
+              <td>2</td>
+              <td>3.20</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Milk</td>
+              <td>1</td>
+              <td>2.45</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Soup</td>
+              <td>4</td>
+              <td>1.10</td>
+            </tr>
+            <tr>
+              <td colspan="3"><strong>Total bill</strong></td>
+              <td>13.25</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* 
+    1. Populate the table with id `order-details` with the data returned 
+       from the database. The table has to be fully paginated with search and order. (10 points)
+    2. When Details button is clicked
+      a. fetch the order details with clicked id from database (backend) (6 points)
+      b. populate the modal (id `order-details-modal`) form with data returned from the backend (6 points)
+   */
+   
+   // Initialize the orders service when page loads
+   $(document).ready(function() {
+       OrdersService.init();
+   });
+</script>
